@@ -50,7 +50,7 @@ module cloud_watch_metric_scaleup {
 ```
 ```
 module cloud_watch_metric_scaledown {
-  source = "../cloudWatch"
+  source = "https://github.com/leandromoreirati/tf-module-cloudWatch.git"
 
   name       = "${var.my_team}-${var.product}-${var.environment}-scaledown"
 
