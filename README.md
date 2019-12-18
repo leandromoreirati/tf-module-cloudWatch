@@ -40,11 +40,10 @@ module cloud_watch_metric_scaleup {
   AutoScalingGroupName = "${"${module.auto_scaling_group.auto_scaling_group_name}"}"
 
   tags = {
-    "Name"           = "${var.my_team}-${var.product}-${var.environment}"
-    "Application"    = "${var.my_team}-${var.product}"
-    "Environment"    = "${var.environment}"
-    "Service_type"   = "${var.service_type}"
-    "Business_owner" = "${var.business_owner}"
+    "Tag01" = "Value01"
+    "Tag02" = "Value02"
+    "Tag03" = "Value03"
+    "Tag04" = "Value04"
   }
 }
 ```
