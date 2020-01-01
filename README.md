@@ -1,22 +1,23 @@
+
+![alt text](https://www.terraform.io/assets/images/logo-hashicorp-3f10732f.svg)
+
 # **tf-module-cloudWatch**
 
-Módulo Terraform para criação de Monitoramento de serviços no ***cloudWatch***.
+Terraform module for creating Service Monitoring in ***cloudWatch***.
 
-Esse módulo e agnóstico ao serviço, nos permitindo monitorar uma infinidade de serviços, tais como:
+This module is service agnostic, allowing us to monitor a multitude of services such as:
 - EC2
 - SQS
 - Lambda
 
-E muitos outros serviços.
-
- **Requisitos**
+ **Requirements**
  - Terraform
  - AWS Account
 
- **Dependências**
- - Serviços a serem monitorado.
+ **Dependencies**
+ - AWS Services.
 
- **Exemplo de Uso**
+ **Example of Use**
  ------
 ```
 module cloud_watch_metric_scaleup {
@@ -79,26 +80,26 @@ module cloud_watch_metric_scaledown {
 
 ```
 
- **Variáveis**
+ **Variables**
  ------
  |          Nome                             |                      Descrição                                       |      Default     |
  |:-----------------------------------------:|----------------------------------------------------------------------|:----------------:|
- | comparison_operator                       | Operador matemático usado para comparar a estatística da métrica     |     ""           |
- | metric_name                               | Nome do alarme associado a métrica                                   |     ""           |
- | namespace                                 | Namespace do alarme associado a métrica                              | ""               |
- | period                                    | O período em segundos no qual a estatística deve ser aplicaca        |     ""           |
- | evaluation_periods                        | O númenro de períodos que serão avaliados                            |   ""             |
- | statistic                                 | A estatística que será aplicada ao alarme                            |    Average       |
- | threshold_scaleup                         | O valor no qual a estatistica será comparado (scaleup)               |     ""           |
- | threshold_scaledown                       | O valor no qual a estatistica será comparado (scaledown)             |     ""           |
- | treat_missing_data                        | Define como o alarme deve lidar com dados ausentes                   |   notBreaching   |
- | alarm_description_scaleup                 | Descrição do alarme scaleup                                          |     ""           |
- | alarm_description_scaledown               | Descrição do alarme scaledown                                        | ""               |
- | actions_enabled                           | Define se as ações devem ou nao ser executadas em caso de alarme     |     true         |
- | alarm_actions                             | Lista de ações a serem executadas em caso de alarme                  |   ""             |
- | ok_actions                                | Lista de ações a serem executadas em caso de alarme OK               |     ""           |
- | insufficient_data_actions                 | Lista de ações a serem executadas em caso INSUFFICIENT_DATA          |     ""           |
- | AutoScalingGroupName                      | Dimensão do alarme associada a métrica                               |     ""           |
+ | comparison_operator                       | Mathematical operator used to compare metric statistics              |     ""           |
+ | metric_name                               | Alarm Name Associated with Metric                                    |     ""           |
+ | namespace                                 | Alarm namespace associated with metric                               | ""               |
+ | period                                    | The period in seconds that the statistic is to be applied            |     ""           |
+ | evaluation_periods                        | The number of periods to be evaluated                                |   ""             |
+ | statistic                                 | The statistic that will be applied to the alarm                      |    Average       |
+ | threshold_scaleup                         | The value at which the statistics will be compared (scaleup)         |     ""           |
+ | threshold_scaledown                       | The value to which the statistics will be compared (scaledown)       |     ""           |
+ | treat_missing_data                        | Defines how the alarm should handle missing data                     |   notBreaching   |
+ | alarm_description_scaleup                 | Description of scaleup alarm                                         |     ""           |
+ | alarm_description_scaledown               | Scaledown Alarm Description                                          | ""               |
+ | actions_enabled                           | Defines whether or not actions should be performed on alarm          |     true         |
+ | alarm_actions                             | List of actions to perform on alarm                                  |   ""             |
+ | ok_actions                                | List of actions to perform on alarm OK                               |     ""           |
+ | insufficient_data_actions                 | List of actions to take on INSUFFICIENT_DATA case                    |     ""           |
+ | AutoScalingGroupName                      | Alarm dimension associated with metric                               |     ""           |
 
  **Outputs**
  ------
@@ -107,7 +108,7 @@ module cloud_watch_metric_scaledown {
  | cloudWatch_metrics_arn| aws_cloudwatch_metric_alarm.cloudwatch_metric_alarm.arn|
  | cloudWatch_metrics_id | aws_cloudwatch_metric_alarm.cloudwatch_metric_alarm.id |
 
- **Documentação externa**
+ **External Documentation**
  - [AWS CloudWatch](https://docs.aws.amazon.com/pt_br/AmazonCloudWatch/latest/monitoring/cloudwatch_architecture.html)
  - [AWS CloudWatch All Metrics](https://docs.aws.amazon.com/pt_br/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
    - [EC2](https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html)
@@ -115,6 +116,6 @@ module cloud_watch_metric_scaledown {
    - [LAMBDA](https://docs.aws.amazon.com/pt_br/lambda/latest/dg/monitoring-functions-metrics.html)
  - [Terraform CloudWatch Metric Alarm](https://www.terraform.io/docs/providers/aws/r/cloudwatch_metric_alarm.html)
 
- **Recursos Criados**
+ **Created Resources**
  ------
- - Monitoramento de serviços no CloudWatch
+ - CloudWatch Service Monitoring
