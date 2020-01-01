@@ -23,7 +23,7 @@ This module is service agnostic, allowing us to monitor a multitude of services 
 module cloud_watch_metric_scaleup {
   source = "https://github.com/leandromoreirati/tf-module-cloudWatch.git"
 
-  name       = "${var.my_team}-${var.product}-${var.environment}-scaleup"
+  name       = "RESOURCE_NAME"
 
   comparison_operator = "${var.comparison_operator}"
   metric_name         = "${var.metric_name}"
